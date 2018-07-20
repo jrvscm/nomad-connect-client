@@ -24,7 +24,7 @@ export default class Input extends Component {
 
 		return(
 			<InputContainer className = "form-input">
-				<label style={{marginBottom: 5}} htmlFor={this.props.input.name}>
+				<label style={{marginBottom: 5, color: `${colors.textGrey}`}} htmlFor={this.props.input.name}>
 					{this.props.label}
 				</label>
 				<input

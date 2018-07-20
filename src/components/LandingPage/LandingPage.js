@@ -37,6 +37,13 @@ const LandingPage = () => (
 
 export default LandingPage;
 
+const mediaQueries = {
+    large: '@media only screen and (max-width: 1600px)',
+    med: '@media only screen and (max-width: 1200px)',
+    small: '@media only screen and (max-width: 900px)',
+    phone: '@media only screen and (max-width: 600px)',
+}
+
 const Container = glamorous.div({
   minHeight: `100vh`,
   width: `100vw`,
@@ -65,7 +72,13 @@ const Mask = glamorous.div({
 }) 
 
 const TextContainer = glamorous.div({
-  width: `60%`
+  width: `60%`,
+  [mediaQueries.med]: {
+    width: `80%`
+  },
+  [mediaQueries.small]: {
+    width: `100%`
+  }
 })
 
 const H1 = glamorous.h1({
@@ -89,6 +102,10 @@ const Col = glamorous.div({
   height: `100%`,
 	width: `50%`,
 	margin: 25,
+  [mediaQueries.small]: {
+    width: `100%`,
+    margin: 0,
+  }
 })
 
 const Row = glamorous.div({
@@ -96,7 +113,11 @@ const Row = glamorous.div({
 	flexDirection: `row`,
 	alignItems: `flex-start`,
 	justifyContent: `center`,
+  [mediaQueries.small]: {
+    flexDirection: `column`
+  },
 })
+
 
 const FormContainer = glamorous.div({
   display: `flex`,
@@ -108,5 +129,11 @@ const FormContainer = glamorous.div({
   backgroundColor: colors.white,
   paddingTop: 20,
   paddingBottom: 20,
-  borderRadius: 6
+  borderRadius: 6,
+  [mediaQueries.med]: {
+    width: `80%`
+  },
+  [mediaQueries.small]: {
+    width: `100%`
+  },
 })
