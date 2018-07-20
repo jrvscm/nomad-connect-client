@@ -114,8 +114,14 @@ const Row = glamorous.div({
 	alignItems: `flex-start`,
 	justifyContent: `center`,
   [mediaQueries.small]: {
-    flexDirection: `column`
+    flexDirection: `column`,
+    paddingRight: 100,
+    paddingLeft: 100
   },
+  [mediaQueries.phone]:{
+    paddingRight: 5,
+    paddingLeft: 5
+  }
 })
 
 
