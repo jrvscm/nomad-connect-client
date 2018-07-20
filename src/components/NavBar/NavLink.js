@@ -19,7 +19,7 @@ const Button = glamorous.button({
 	margin: 10,
 	border: `none`,
 	backgroundColor: colors.transparent,
-	color: colors.black,
+	color: colors.white,
 	cursor: `pointer`,
 	transition: `all .15s ease`,
 	'&:hover': {

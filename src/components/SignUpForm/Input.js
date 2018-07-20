@@ -27,7 +27,8 @@ export default class Input extends Component {
 				<label style={{marginBottom: 5}} htmlFor={this.props.input.name}>
 					{this.props.label}
 				</label>
-				<input 
+				<input
+					autocomplete="off" 
 					style={{
 						lineHeight: 2, 
 						width: `100%`, 

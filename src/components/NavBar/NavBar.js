@@ -21,7 +21,7 @@ const Container = glamorous.div({
 	width: `100vw`,
 	position: `absolute`,
 	top: 0,
-	backgroundColor: colors.white,
+	backgroundColor: colors.transparent,
 	WebkitBoxShadow: `0px 2px 5px 0px rgba(0,0,0,0.75)`,
 	MozBoxShadow: `0px 2px 5px 0px rgba(0,0,0,0.75)`,
 	boxShadow: `0px 2px 5px 0px rgba(0,0,0,0.75)`,

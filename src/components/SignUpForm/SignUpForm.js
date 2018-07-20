@@ -16,6 +16,7 @@ class SignUpForm extends Component {
 		return(
     	<Form
         className="sign-up-form"
+        autocomplete="off"
         onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
        >
        	<label htmlFor="firstName">First name</label>
