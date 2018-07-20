@@ -28,7 +28,7 @@ export default class Input extends Component {
 					{this.props.label}
 				</label>
 				<input
-					autocomplete="off" 
+					autoComplete="off" 
 					style={{
 						lineHeight: 2, 
 						width: `100%`, 
