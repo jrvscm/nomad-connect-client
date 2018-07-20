@@ -38,9 +38,9 @@ const LandingPage = () => (
 export default LandingPage;
 
 const mediaQueries = {
-    large: '@media only screen and (max-width: 1600px)',
-    med: '@media only screen and (max-width: 1200px)',
-    small: '@media only screen and (max-width: 900px)',
+    large: '@media only screen and (min-width: 1600px)',
+    med: '@media only screen and (max-width: 1600px)',
+    small: '@media only screen and (max-width: 1200px)',
     phone: '@media only screen and (max-width: 600px)',
 }
 
@@ -74,10 +74,7 @@ const Mask = glamorous.div({
 const TextContainer = glamorous.div({
   width: `60%`,
   [mediaQueries.med]: {
-    width: `80%`
-  },
-  [mediaQueries.small]: {
-    width: `100%`
+    width: `70%`
   }
 })
 
@@ -85,7 +82,10 @@ const H1 = glamorous.h1({
   color: colors.white,
   fontSize: 50,
   fontFamily: `Montserrat, sans-serif`,
-  marginTop: 0
+  marginTop: 0,
+  [mediaQueries.med]:{
+    fontSize: 40
+  }
 })
 
 const P = glamorous.p({
@@ -101,27 +101,14 @@ const Col = glamorous.div({
 	justifyContent: `center`,
   height: `100%`,
 	width: `50%`,
-	margin: 25,
-  [mediaQueries.small]: {
-    width: `100%`,
-    margin: 0,
-  }
+	margin: 25
 })
 
 const Row = glamorous.div({
 	display: `flex`,
 	flexDirection: `row`,
 	alignItems: `flex-start`,
-	justifyContent: `center`,
-  [mediaQueries.small]: {
-    flexDirection: `column`,
-    paddingRight: 100,
-    paddingLeft: 100
-  },
-  [mediaQueries.phone]:{
-    paddingRight: 5,
-    paddingLeft: 5
-  }
+	justifyContent: `center`
 })
 
 
@@ -137,9 +124,6 @@ const FormContainer = glamorous.div({
   paddingBottom: 20,
   borderRadius: 6,
   [mediaQueries.med]: {
-    width: `80%`
-  },
-  [mediaQueries.small]: {
-    width: `100%`
-  },
+    width: `70%`
+  }
 })
