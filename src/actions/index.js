@@ -1,0 +1,9 @@
+//navbar
+//export const UPDATE_DIMENSIONS = 'UPDATE_DIMENSIONS';
+
+//auth
+export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
+export const CLEAR_AUTH = 'CLEAR_AUTH';
+export const AUTH_REQUEST = 'AUTH_REQUEST';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_ERROR = 'AUTH_ERROR';
