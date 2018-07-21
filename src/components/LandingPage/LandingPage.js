@@ -15,8 +15,8 @@ const LandingPage = () => (
         <TextContainer>
           <H1>NOMAD CONNECT</H1>
           <P style={{color: 'white'}}>
-            The social platform dedicated to connecting travelers with local guides, culture, must see's, and places to stay.
-            Perhaps you want to be immersed in a foreign country or you've expereinced the joy of traveling the world, and want
+            The social platform dedicated to connecting travelers with local guides, culture, must see's, and must stay's.
+            Perhaps you want to be immersed in a foreign country or you've experienced the joy of traveling the world, and want
             to help other people find that same joy! Sign up to become a guide/host for your local area, or browse our current
             hosts to plan a trip!	
           </P>
