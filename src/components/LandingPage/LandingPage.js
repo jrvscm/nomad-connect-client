@@ -4,28 +4,29 @@ import glamorous from 'glamorous';
 import colors from '../../colors';
 import NavBar from '../NavBar';
 import SignUpForm from '../SignUpForm';
+import {mediaQueries} from '../UIElements';
 
 const LandingPage = () => (
   <Container>	
     <Mask> 
   	<NavBar />
   	<Row>
-  		<Col style={{alignItems: 'flex-end'}}>
+  		<Col>
         <TextContainer>
           <H1>NOMAD CONNECT</H1>
           <P style={{color: 'white'}}>
-  				  This is a paragraph about how awesome our platform is. 
-  				  It connects travelers with ease and even makes us a little money too
-  				  This is a paragraph about how awesome our platform is. 
-  				  It connects travelers with ease and even makes us a little money too  
-            This is a paragraph about how awesome our platform is. 
-            It connects travelers with ease and even makes us a little money too
-            This is a paragraph about how awesome our platform is. 
-            It connects travelers with ease and even makes us a little money too              			
+            The social platform dedicated to connecting travelers with local guides, culture, must see's, and places to stay.
+            Perhaps you want to be immersed in a foreign country or you've expereinced the joy of traveling the world, and want
+            to help other people find that same joy! Sign up to become a guide/host for your local area, or browse our current
+            hosts to plan a trip!	
           </P>
-        </TextContainer> 
-  		</Col>
-      <Col style={{alignItems: 'flex-start'}}>
+          <Row style={{justifyContent: `flex-start`, flexDirection: `row`}}>
+            <Button>More</Button>
+            <Button>Log In</Button>
+          </Row> 
+        </TextContainer>
+      </Col>
+      <Col>
         <FormContainer>
           <SignUpForm />
   		  </FormContainer>
@@ -37,12 +38,29 @@ const LandingPage = () => (
 
 export default LandingPage;
 
-const mediaQueries = {
-    large: '@media only screen and (min-width: 1600px)',
-    med: '@media only screen and (max-width: 1600px)',
-    small: '@media only screen and (max-width: 1200px)',
-    phone: '@media only screen and (max-width: 600px)',
-}
+const Button = glamorous.button({
+  lineHeight: 3,
+  width: 200,
+  margin: 5,
+  borderRadius: 3,
+  border: `1px solid ${colors.airbnbRed}`,
+  background: colors.airbnbRed,
+  color: colors.white,
+  fontWeight: `bold`,
+  fontSize: `16`,
+  cursor: `pointer`,
+  transition: `all .15s ease`,
+  '&:focus': {
+    backgroundColor: colors.darkRed
+  },
+  '&:nth-child(2)':{
+    backgroundColor: `transparent`,
+    border: `1px solid ${colors.airbnbRed}`
+  },
+  '&:nth-child(2):focus':{
+    backgroundColor: colors.darkRed
+  }
+})
 
 const Container = glamorous.div({
   minHeight: `100vh`,
@@ -72,43 +90,68 @@ const Mask = glamorous.div({
 }) 
 
 const TextContainer = glamorous.div({
-  width: `60%`,
-  [mediaQueries.med]: {
-    width: `70%`
-  }
+  maxWidth: `80%`
 })
 
 const H1 = glamorous.h1({
   color: colors.white,
-  fontSize: 50,
+  fontSize: 55,
   fontFamily: `Montserrat, sans-serif`,
-  marginTop: 0,
-  [mediaQueries.med]:{
-    fontSize: 40
+  margin: 0,
+  [mediaQueries.med]: {
+    fontSize: 42
+  },
+  [mediaQueries.small]:{
+    fontSize: 55
+  },
+  [mediaQueries.phone]:{
+    fontSize: 26
   }
 })
 
 const P = glamorous.p({
   color: colors.white,
-  fontSize: 18,
-  fontFamily: `Cardo, serif`
+  fontSize: 24,
+  fontFamily: `Cardo, serif`,
+  [mediaQueries.med]:{
+    fontSize: 18
+  },
+  [mediaQueries.phone]:{
+    fontSize: 16
+  }
 })
 
 const Col = glamorous.div({
 	display: `flex`,
 	flexDirection: `column`,
-	alignItems: `center`,
+	alignItems: `flex-end`,
 	justifyContent: `center`,
   height: `100%`,
-	width: `50%`,
-	margin: 25
+	width: `60%`,
+	margin: 25,
+  '&:nth-child(2)': {
+    width: `40%`,
+    alignItems: 'flex-start'
+  },
+  [mediaQueries.med]:{
+  '&:nth-child(1)':{
+      alignItems: `center`
+    }
+  },
+  [mediaQueries.small]: {
+    minWidth: `100vw`
+  }
 })
 
 const Row = glamorous.div({
 	display: `flex`,
 	flexDirection: `row`,
 	alignItems: `flex-start`,
-	justifyContent: `center`
+	justifyContent: `center`,
+  [mediaQueries.small]:{
+    flexDirection: `column`,
+    alignItems: `center`
+  }
 })
 
 
@@ -117,13 +160,17 @@ const FormContainer = glamorous.div({
   flexDirection: `row`,
   alignItems: `center`,
   justifyContent: `center`,
-  width: `60%`,
-  minWidth: 300,
+  width: `80%`,
+  minWidth: 315,
   backgroundColor: colors.white,
   paddingTop: 20,
   paddingBottom: 20,
   borderRadius: 6,
-  [mediaQueries.med]: {
-    width: `70%`
+  maxWidth: 450,
+  [mediaQueries.med]:{
+    width: `95%`
+  },
+  [mediaQueries.small]:{
+    display: `none`
   }
 })
