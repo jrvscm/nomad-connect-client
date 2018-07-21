@@ -3,7 +3,7 @@ import glamorous from 'glamorous';
 
 import colors from '../../colors';
 import NavLink from './NavLink';
-
+//TODO: Check for possible memory leak with the event listener function ref
 
 class NavBar extends Component { 
 	componentDidMount() {

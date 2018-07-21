@@ -52,7 +52,7 @@ const testimonials = [
   }  
 ]
 
-const LandingPage = () => (
+const LandingPage = ({viewportWidth}) => (
   <Container>	
     <Mask> 
   	<NavBar />
