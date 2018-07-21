@@ -1,5 +1,5 @@
 //navbar
-//export const UPDATE_DIMENSIONS = 'UPDATE_DIMENSIONS';
+export const UPDATE_VIEWPORT_WIDTH = 'UPDATE_VIEWPORT_WIDTH';
 
 //auth
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';

@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import glamorous from 'glamorous';
 
 import colors from '../../colors';
 import NavLink from './NavLink';
 
 
-const NavBar = ({dimensions}) => (
-	<Container>
-		<Row>
-			<NavLink text={'One'} route={'/'} />
-			<NavLink text={'Two'} route={'/'} />
-			<NavLink text={'Three'} route={'/'} />
-		</Row>
-	</Container>
-)
+class NavBar extends Component { 
+	componentDidMount() {
+		const { updateViewportWidth } = this.props;	
+			updateViewportWidth(window.innerWidth);
+			window.addEventListener("resize", () => updateViewportWidth(window.innerWidth))
+	}
+
+	componentWillUnmount() {
+		const { updateViewportWidth } = this.props;
+			window.removeEventListener("resize", () => updateViewportWidth(window.innerWidth))
+	}
+
+	render(){
+		const { updateViewportWidth, viewportWidth } = this.props;
+		return(
+			<Container {...this.props}>
+				<Row>
+					<NavLink text={'One'} route={'/'} />
+					<NavLink text={'Two'} route={'/'} />
+					<NavLink text={'Three'} route={'/'} />
+				</Row>
+			</Container>			
+		)
+	}
+}
 
 export default NavBar;
 
