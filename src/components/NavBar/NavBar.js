@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
+import { Icon } from 'react-icons-kit';
+import { navicon } from 'react-icons-kit/fa/navicon';
 
 import colors from '../../colors';
 import NavLink from './NavLink';
@@ -20,11 +22,8 @@ class NavBar extends Component {
 	render(){
 		const { updateViewportWidth, viewportWidth } = this.props;
 		return(
-			<Container {...this.props}>
+			<Container>
 				<Row>
-					<NavLink text={'One'} route={'/'} />
-					<NavLink text={'Two'} route={'/'} />
-					<NavLink text={'Three'} route={'/'} />
 				</Row>
 			</Container>			
 		)
@@ -35,12 +34,12 @@ export default NavBar;
 
 const Container = glamorous.div({
 	width: `100vw`,
-	position: `absolute`,
+	position: `fixed`,
 	top: 0,
 	backgroundColor: colors.transparent,
-	WebkitBoxShadow: `0px 2px 5px 0px rgba(0,0,0,0.75)`,
-	MozBoxShadow: `0px 2px 5px 0px rgba(0,0,0,0.75)`,
-	boxShadow: `0px 2px 5px 0px rgba(0,0,0,0.75)`,
+	//WebkitBoxShadow: `0px 2px 5px 0px rgba(0,0,0,0.75)`,
+	//MozBoxShadow: `0px 2px 5px 0px rgba(0,0,0,0.75)`,
+	//boxShadow: `0px 2px 5px 0px rgba(0,0,0,0.75)`,
 })
 
 const Row = glamorous.div({

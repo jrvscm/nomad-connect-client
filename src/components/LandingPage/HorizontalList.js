@@ -37,14 +37,15 @@ const Container = glamorous.div({}, ({slideWidth, cellSpacing}) => ({
 
 const OverflowHidden = glamorous.div({
   position: `relative`,
-  maxWidth: `100%`,
+  height: `40vh`,
+  maxWidth: `100%`
 });
 
 const Wrapper = glamorous.div({
   display: 'flex',
   flexDirection: 'row',
   position: `absolute`,
-  top: 25,
+  top: 15,
   right: 0,
   left: 0,
   overflowX: `scroll`,

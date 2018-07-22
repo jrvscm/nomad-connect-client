@@ -13,7 +13,6 @@ const NavLink = ({history, route, text}) => (
 export default withRouter(NavLink);
 
 const Button = glamorous.button({
-	width: 80,
 	padding: 10,
 	fontSize: 20,
 	margin: 10,

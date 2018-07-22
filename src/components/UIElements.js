@@ -14,4 +14,5 @@ export const mediaQueries = {
     med: '@media only screen and (max-width: 1300px)',
     small: '@media only screen and (max-width: 950px)',
     phone: '@media only screen and (max-width: 700px)',
+    stubby: '@media only screen and (max-height: 568px)'
 };

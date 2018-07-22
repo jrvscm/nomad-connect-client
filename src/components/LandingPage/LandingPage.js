@@ -6,6 +6,7 @@ import NavBar from '../NavBar';
 import SignUpForm from '../SignUpForm';
 import HorizontalList from './HorizontalList';
 import TestimonialCard from './TestimonialCard';
+import Feature from './Feature';
 import {mediaQueries} from '../UIElements';
 
 
@@ -52,12 +53,33 @@ const testimonials = [
   }  
 ]
 
-const LandingPage = ({viewportWidth}) => (
-  <Container>	
-    <Mask> 
-  	<NavBar />
-  	<Row>
-  		<Col>
+const LandingPage = ({viewportWidth}) => {
+  const mainRow = viewportWidth < 950 
+  ? (
+    <Row>
+      <TextContainer>
+        <H1>NOMAD CONNECT</H1>
+        <P style={{color: 'white'}}>
+          The social platform dedicated to connecting travelers with local guides, culture, must see's, and must stay's.
+        </P>
+        <Row style={{justifyContent: `flex-start`, flexDirection: `row`}}>
+          <Button>Log in</Button>
+          <Button>Learn More</Button>
+        </Row>
+        <HorizontalList slideWidth='47px' slidesToShow={1} cellSpacing={30}>
+          {
+            Object.keys(testimonials).map(key => {
+              return (
+                <TestimonialCard key={key} testimonial={testimonials[key]} />
+              )
+            })
+          }
+        </HorizontalList>
+      </TextContainer>
+    </Row>
+  ) : (
+    <Row>
+      <Col>
         <TextContainer>
           <H1>NOMAD CONNECT</H1>
           <P style={{color: 'white'}}>
@@ -78,21 +100,42 @@ const LandingPage = ({viewportWidth}) => (
             </HorizontalList>
         </TextContainer>
       </Col>
-      <Col>
+      <Col viewportWidth={viewportWidth}>
         <FormContainer>
           <SignUpForm />
-  		  </FormContainer>
+        </FormContainer>
       </Col>
-  	</Row>
-    </Mask>
-  </Container>
-)
+    </Row>
+  )
+
+  return(
+  <div>
+    <HeroContainer>	
+      <Mask> 
+      <NavBar />
+      { mainRow }
+      </Mask>
+    </HeroContainer>
+    <Section>
+      <h2> All the Awesome Features!</h2>
+      <Row style={{justifyContent: `center`, alignItems: `center`, height: `50vh`, width: `100vw`}}>
+        <Feature />
+        <Feature />
+        <Feature />
+      </Row>  
+      <Row style={{justifyContent: `center`, alignItems: `center`, height: `50vh`, width: `100vw`}}>
+
+      </Row>
+    </Section>
+  </div>
+  )
+}
 
 export default LandingPage;
 
 const Button = glamorous.button({
   lineHeight: 3,
-  width: 200,
+  width: 150,
   margin: 5,
   borderRadius: 3,
   border: `1px solid ${colors.airbnbRed}`,
@@ -114,7 +157,7 @@ const Button = glamorous.button({
   }
 })
 
-const Container = glamorous.div({
+const HeroContainer = glamorous.div({
   minHeight: `100vh`,
   width: `100vw`,
   display: `flex`,
@@ -138,11 +181,11 @@ const Mask = glamorous.div({
   display: `flex`,
   flexDirection: `column`,
   justifyContent: `center`,
-  alignItems: `center`
+  alignItems: `center`,
 }) 
 
 const TextContainer = glamorous.div({
-  maxWidth: `80%`,
+  maxWidth: `95%`,
 })
 
 const H1 = glamorous.h1({
@@ -156,8 +199,11 @@ const H1 = glamorous.h1({
   [mediaQueries.small]:{
     fontSize: 55
   },
-  [mediaQueries.phone]:{
-    fontSize: 26
+  [mediaQueries.phone]: {
+    fontSize: 40
+  },
+  [mediaQueries.stubby]: {
+    fontSize: 30
   }
 })
 
@@ -167,9 +213,6 @@ const P = glamorous.p({
   fontFamily: `Cardo, serif`,
   [mediaQueries.med]:{
     fontSize: 18
-  },
-  [mediaQueries.phone]:{
-    fontSize: 16
   }
 })
 
@@ -180,21 +223,10 @@ const Col = glamorous.div({
 	justifyContent: `center`,
   height: `100%`,
 	width: `60%`,
-	margin: 25,
+	margin: 15,
   '&:nth-child(2)': {
     width: `40%`,
     alignItems: 'flex-start'
-  },
-  [mediaQueries.med]:{
-  '&:nth-child(1)':{
-      alignItems: `center`
-    }
-  },
-  [mediaQueries.small]: {
-    minWidth: `100vw`,
-    '&:nth-child(2)':{
-      display: `none`
-    }
   }
 })
 
@@ -202,11 +234,7 @@ const Row = glamorous.div({
 	display: `flex`,
 	flexDirection: `row`,
 	alignItems: `flex-start`,
-	justifyContent: `center`,
-  [mediaQueries.small]:{
-    flexDirection: `column`,
-    alignItems: `center`
-  }
+	justifyContent: `center`
 })
 
 
@@ -221,8 +249,15 @@ const FormContainer = glamorous.div({
   paddingTop: 20,
   paddingBottom: 20,
   borderRadius: 6,
-  maxWidth: 450,
-  [mediaQueries.med]:{
-    width: `95%`
-  }
+  maxWidth: 450
+})
+
+const Section = glamorous.div({
+  height: `100vh`,
+  width: `100vw`,
+  display: `flex`,
+  flexDirection: `column`,
+  justifyContent: `center`,
+  alignItems: `center`,
+  paddingTop: 100
 })
