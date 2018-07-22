@@ -118,6 +118,7 @@ const LandingPage = ({viewportWidth}) => {
     </HeroContainer>
     <Section>
       <h2> All the Awesome Features!</h2>
+      <p>A sentence that is pretty long but not too long explaining some things. Plus a few more words.</p>
       <Row style={{justifyContent: `center`, alignItems: `center`, height: `50vh`, width: `100vw`}}>
         <Feature />
         <Feature />
