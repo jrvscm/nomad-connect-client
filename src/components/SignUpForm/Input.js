@@ -11,34 +11,25 @@ export default class Input extends Component {
 	}
 
 	render() {
-		let error;
-		if(this.props.meta.touched && this.props.meta.error) {
-			error = <div className="form-error">{this.props.meta.error}</div>;
+		const { touched, error, warning } = this.props.meta;
+		if(touched && error) {
+			//error = <div className="form-error">{error}</div>;
+			console.log(error)
 		}
-		let warning;
-		if(this.props.meta.touched && this.props.meta.warning) {
-			warning = (
-				<div className="form-warning">{this.props.meta.warning}</div>
-			)
+		if(touched && warning) {
+		///	warning = (
+			///	<div className="form-warning">{this.props.meta.warning}</div>
+		///	)
+			console.log(warning)
 		}
 
 		return(
-			<InputContainer className = "form-input">
+			<InputContainer className = "form-input" error={error} warning={warning}>
 				<label style={{marginBottom: 5, color: `${colors.textGrey}`}} htmlFor={this.props.input.name}>
 					{this.props.label}
 				</label>
 				<input
 					autoComplete="off" 
-					style={{
-						lineHeight: 2, 
-						width: `100%`, 
-						boxSizing: `border-box`, 
-						borderRadius: 3, 
-						border: `1px solid ${colors.textGrey}`,
-						fontSize:20,
-						paddingRight: 5,
-						paddingLeft: 5
-					}}
 					{...this.props.input}
 					id={this.props.input.name}
 					type={this.props.type}
@@ -55,5 +46,16 @@ const InputContainer = glamorous.div({
 	display: `flex`,
 	flexDirection: `column`,
 	alignItems: `center`,
-	justifyContent: `center` 
-})
+	justifyContent: `center`,
+}, ({error}) => ({
+	['& input']: {
+		lineHeight: 2, 
+		width: `100%`, 
+		boxSizing: `border-box`, 
+		borderRadius: 3, 
+		fontSize:20,
+		paddingRight: 5,
+		paddingLeft: 5,
+		border: error ? `1px solid ${colors.textGrey}` : `1px solid red`,
+	}
+}))

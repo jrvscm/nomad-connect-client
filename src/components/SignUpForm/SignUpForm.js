@@ -4,7 +4,7 @@ import {Field, reduxForm, focus} from 'redux-form';
 
 import colors from '../../colors';
 import Input from './Input';
-import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
+import {required, nonEmpty, matches, length, isTrimmed, email} from '../../validators';
 
 class SignUpForm extends Component {
     
@@ -28,13 +28,15 @@ class SignUpForm extends Component {
         <Field 
           component={Input} 
           type="text" 
-          name="firstName" 
+          name="firstName"
+          validate={[required, nonEmpty]} 
         />
         <label htmlFor="lastName">Last name</label>
         <Field 
           component={Input} 
           type="text" 
           name="lastName" 
+          validate={[required, nonEmpty]}
         />
         <label htmlFor="username">Username</label>
         <Field
@@ -44,19 +46,19 @@ class SignUpForm extends Component {
           validate={[required, nonEmpty, isTrimmed]}
           warn={required}
         />
+        <label htmlFor="email">Email</label>
+        <Field
+          component={Input}
+          type="email"
+          name="email"
+          validate={[required, nonEmpty, email]}
+        />        
         <label htmlFor="password">Password</label>
         <Field
           component={Input}
           type="password"
           name="password"
           validate={[required, length({min: 8, max: 72}), isTrimmed]}
-        />
-        <label htmlFor="passwordConfirm">Confirm password</label>
-        <Field
-          component={Input}
-          type="password"
-          name="passwordConfirm"
-          validate={[required, nonEmpty, matches('password')]}
         />
         <Button
           type="submit"
