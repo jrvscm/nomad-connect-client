@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
+import { focus } from 'redux-form';
 import {registerUser} from '../../../actions/users.js';
 import {login} from '../../../actions/auth.js';
 

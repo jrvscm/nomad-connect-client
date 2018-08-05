@@ -9,20 +9,33 @@ import {required, nonEmpty, matches, length, isTrimmed} from '../../validators';
 class SignUpForm extends Component {
     
 	onSubmit(values) {
-		console.log(values)
+		const { registerUser } = this.props;
+    const { firstName, lastName, password, username } = values;
+    const user = { firstName, lastName, password, username };
+    
+    registerUser(user);
   }
 
 	render() {
+    const { handleSubmit } = this.props;
 		return(
     	<Form
         className="sign-up-form"
         autoComplete="off"
-        onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+        onSubmit={handleSubmit(values => this.onSubmit(values))}
        >
        	<label htmlFor="firstName">First name</label>
-        <Field component={Input} type="text" name="firstName" />
+        <Field 
+          component={Input} 
+          type="text" 
+          name="firstName" 
+        />
         <label htmlFor="lastName">Last name</label>
-        <Field component={Input} type="text" name="lastName" />
+        <Field 
+          component={Input} 
+          type="text" 
+          name="lastName" 
+        />
         <label htmlFor="username">Username</label>
         <Field
           component={Input}
@@ -36,7 +49,7 @@ class SignUpForm extends Component {
           component={Input}
           type="password"
           name="password"
-          validate={[required, length({min: 10, max: 72}), isTrimmed]}
+          validate={[required, length({min: 8, max: 72}), isTrimmed]}
         />
         <label htmlFor="passwordConfirm">Confirm password</label>
         <Field
