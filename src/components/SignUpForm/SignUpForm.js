@@ -4,16 +4,23 @@ import {Field, reduxForm, focus} from 'redux-form';
 
 import colors from '../../colors';
 import Input from './Input';
-import {required, nonEmpty, matches, length, isTrimmed, email} from '../../validators';
+import {
+  required, 
+  nonEmpty, 
+  matches, 
+  length, 
+  isTrimmed, 
+  email
+} from '../../validators';
 
 class SignUpForm extends Component {
     
 	onSubmit(values) {
-		const { registerUser } = this.props;
+		const { registerUser, login } = this.props;
     const { firstName, lastName, password, username } = values;
     const user = { firstName, lastName, password, username };
-    
-    registerUser(user);
+
+    registerUser(user).then(() => login(username, password))
   }
 
 	render() {
@@ -58,7 +65,7 @@ class SignUpForm extends Component {
           component={Input}
           type="password"
           name="password"
-          validate={[required, length({min: 8, max: 72}), isTrimmed]}
+          validate={[required, length({min: 10, max: 72}), isTrimmed]}
         />
         <Button
           type="submit"
@@ -88,6 +95,7 @@ const Button = glamorous.button({
   fontWeight: `bold`,
   fontSize: `16`,
   transition: `all .15s ease`,
+  cursor: `pointer`,
   '&:focus': {
     backgroundColor: colors.darkRed
   }

@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 	viewportWidth: null
 };
 
-function navbar(state = INITIAL_STATE, action) {
+function devicesizer(state = INITIAL_STATE, action) {
   switch(action.type) {
   	case UPDATE_VIEWPORT_WIDTH: 
   		return {
@@ -16,4 +16,4 @@ function navbar(state = INITIAL_STATE, action) {
   }
 }
 
-export default navbar;
+export default devicesizer;

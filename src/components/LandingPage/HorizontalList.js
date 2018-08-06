@@ -52,10 +52,10 @@ const Wrapper = glamorous.div({
   overflowY: `hidden`,
   WebkitOverflowScrolling: 'touch !important',
   '&::-webkit-scrollbar':{
-    backgroundColor: `rgba(255,255,255,.2)`
+    backgroundColor: `rgba(255,255,255,.05)`
   },
   '&::-webkit-scrollbar-thumb':{
-    backgroundColor: `rgba(0,0,0,.2)`
+    backgroundColor: `rgba(0,0,0,.1)`
   },
   [mediaQueries.phone]: {
     '&::-webkit-scrollbar':{

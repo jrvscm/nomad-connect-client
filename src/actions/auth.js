@@ -20,8 +20,7 @@ export const authRequest = () => ({
     type: AUTH_REQUEST
 });
 export const authSuccess = currentUser => ({
-    type: AUTH_SUCCESS,
-    currentUser
+    type: AUTH_SUCCESS, currentUser
 });
 export const authError = error => ({
     type: AUTH_ERROR, error
@@ -38,7 +37,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 export const login = (username, password) => dispatch => {
 	dispatch(authRequest());
 	return(
-		fetch(`${process.env.REACT_APP_API_BASE_URL}/auth/login`, {
+		fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/login`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -57,8 +56,8 @@ export const login = (username, password) => dispatch => {
 			const {code} = err;
 			const message = 
 				code === 401 
-				? 'Incorrect username or password'
-				: 'Unable to login, please try again';
+					? 'Incorrect username or password'
+					: 'Unable to login, please try again';
 			dispatch(authError(err));
 			// Could not authenticate, so return a submission error for redux form
 			return Promise.reject(

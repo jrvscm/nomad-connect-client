@@ -5,7 +5,8 @@ import { compose } from 'recompose';
 import LandingPage from '../LandingPage';
 
 const mapStateToProps = (state) => ({
-	viewportWidth: state.navbar.viewportWidth
+	viewportWidth: state.devicesizer.viewportWidth,
+	loggedIn: state.auth.currentUser !== null
 })
 const mapDispatchToProps = {
 

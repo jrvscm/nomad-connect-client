@@ -12,19 +12,17 @@ export default class Input extends Component {
 
 	render() {
 		const { touched, error, warning } = this.props.meta;
-		if(touched && error) {
-			//error = <div className="form-error">{error}</div>;
+		if((touched && error) || (touched && error)) {
 			console.log(error)
-		}
-		if(touched && warning) {
-		///	warning = (
-			///	<div className="form-warning">{this.props.meta.warning}</div>
-		///	)
-			console.log(warning)
 		}
 
 		return(
-			<InputContainer className = "form-input" error={error} warning={warning}>
+			<InputContainer 
+				className = "form-input" 
+				error={error} 
+				warning={warning} 
+				touched={touched}
+			>
 				<label style={{marginBottom: 5, color: `${colors.textGrey}`}} htmlFor={this.props.input.name}>
 					{this.props.label}
 				</label>
@@ -47,7 +45,8 @@ const InputContainer = glamorous.div({
 	flexDirection: `column`,
 	alignItems: `center`,
 	justifyContent: `center`,
-}, ({error}) => ({
+	transition: `all .2s ease`,
+}, ({error, touched}) => ({
 	['& input']: {
 		lineHeight: 2, 
 		width: `100%`, 
@@ -56,6 +55,8 @@ const InputContainer = glamorous.div({
 		fontSize:20,
 		paddingRight: 5,
 		paddingLeft: 5,
-		border: error ? `1px solid ${colors.textGrey}` : `1px solid red`,
+		border: touched && error 
+			? `1px solid red` 
+			: `1px solid ${colors.textGrey}`
 	}
 }))

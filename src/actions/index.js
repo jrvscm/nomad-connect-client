@@ -1,4 +1,4 @@
-//navbar
+//devicesizer
 export const UPDATE_VIEWPORT_WIDTH = 'UPDATE_VIEWPORT_WIDTH';
 
 //auth

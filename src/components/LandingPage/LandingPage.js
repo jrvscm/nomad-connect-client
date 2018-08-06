@@ -1,8 +1,9 @@
 import React , { Component } from 'react';
 import glamorous from 'glamorous';
+import { Redirect } from 'react-router-dom';
 
 import colors from '../../colors';
-import NavBar from '../NavBar';
+import DeviceSizer from '../DeviceSizer';
 import SignUpForm from '../SignUpForm';
 import HorizontalList from './HorizontalList';
 import TestimonialCard from './TestimonialCard';
@@ -53,7 +54,14 @@ const testimonials = [
   }  
 ]
 
-const LandingPage = ({viewportWidth}) => {
+const LandingPage = ({viewportWidth, loggedIn}) => {
+  // If we are logged in (which happens automatically when registration
+  // is successful) redirect to the user's dashboard
+  console.log(loggedIn)
+  if(loggedIn) {
+    return(<Redirect to="/dashboard" />)
+  }
+
   const mainRow = viewportWidth < 950 
   ? (
     <Row>
@@ -112,7 +120,7 @@ const LandingPage = ({viewportWidth}) => {
   <div>
     <HeroContainer>	
       <Mask> 
-      <NavBar />
+      <DeviceSizer />
       { mainRow }
       </Mask>
     </HeroContainer>
