@@ -57,7 +57,7 @@ const testimonials = [
 const LandingPage = ({viewportWidth, loggedIn}) => {
   // If we are logged in (which happens automatically when registration
   // is successful) redirect to the user's dashboard
-  console.log(loggedIn)
+
   if(loggedIn) {
     return(<Redirect to="/dashboard" />)
   }

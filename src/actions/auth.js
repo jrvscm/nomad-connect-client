@@ -40,7 +40,7 @@ export const login = (username, password) => dispatch => {
 		fetch(`${process.env.REACT_APP_API_BASE_URL}/api/auth/login`, {
 			method: 'POST',
 			headers: {
-				'Content-Type': 'application/json'
+				'content-type': 'application/json'
 			},
 			body: JSON.stringify({
 				username,
