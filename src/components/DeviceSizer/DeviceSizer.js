@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import glamorous from 'glamorous';
-import { Icon } from 'react-icons-kit';
-import { navicon } from 'react-icons-kit/fa/navicon';
 
 import colors from '../../colors';
 
